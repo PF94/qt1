@@ -42,11 +42,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 98)
 set(BUILD_SHARED_LIBS ON)
 
-option(ENABLE_THREAD_SUPPORT "Compile with Threading Support" ON)
-option(ENABLE_OPENGL "Compile OpenGL module" ON)
-option(BUILD_QT1_TUTORIAL "Build tutorials." ON)
-option(BUILD_QT1_EXAMPLES "Build examples." ON)
-option(INSTALL_QT_DOCS "Install Qt Documentation" ON)
+option(ENABLE_THREAD_SUPPORT "Compile with Threading Support")
+option(ENABLE_OPENGL "Compile OpenGL module")
+option(BUILD_QT1_TUTORIAL "Build tutorials.")
+option(BUILD_QT1_EXAMPLES "Build examples.")
+option(INSTALL_QT_DOCS "Install Qt Documentation")
 
 find_package(PkgConfig REQUIRED)
 
@@ -63,7 +63,9 @@ if(SYSTEM_ZLIB)
     find_package(ZLIB REQUIRED)
 endif()
 
-find_package(X11 REQUIRED)
+if(LINUX)
+    find_package(X11 REQUIRED)
+endif()
 find_package(BYACC REQUIRED)
 find_package(FLEX REQUIRED)
 

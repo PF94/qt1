@@ -110,6 +110,8 @@
 #define _OS_UNIXWARE7_
 #elif defined(__QNX__)
 #define _OS_QNX_
+#elif defined(DUCKOS)
+#define _OS_DUCK_
 #else
 #error "Qt has not been ported to this OS - talk to qt-bugs@troll.no"
 #endif
