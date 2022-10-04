@@ -159,7 +159,12 @@ bool QFile::exists() const
 {
     if ( fn.isEmpty() )
 	return FALSE;
+#if defined(_OS_DUCK_)
+    #warning "fixme: access function"
+    return 1;
+#else
     return ACCESS(fn.data(), F_OK) == 0;
+#endif
 }
 
 /*!
@@ -171,7 +176,12 @@ bool QFile::exists( const char *fileName )
 #if defined(CHECK_NULL)
     ASSERT( fileName != 0 );
 #endif
+#if defined(_OS_DUCK_)
+    #warning "fixme: access function"
+    return 1;
+#else
     return ACCESS( fileName, F_OK ) == 0;
+#endif
 }
 
 

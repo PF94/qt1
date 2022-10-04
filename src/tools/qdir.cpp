@@ -816,7 +816,10 @@ bool QDir::rmdir( const char *dirName, bool acceptAbsPath ) const
 
 bool QDir::isReadable() const
 {
-#if defined(UNIX)
+#if defined(_OS_DUCK_)
+#warning "fixme: access function"
+    return 0;
+#elif defined(UNIX)
     return ACCESS( dPath.data(), R_OK | X_OK ) == 0;
 #else
     return ACCESS( dPath.data(), R_OK ) == 0;

@@ -247,7 +247,7 @@ public:
 public:
     QWidget	*parentWidget() const;
     bool	 testWFlags( WFlags n ) const;
-    static QWidget	 *find( WId );
+    static QWidget	 *find( int WId );
     static QWidgetMapper *wmapper();
 
   // Event handlers
@@ -275,8 +275,10 @@ protected:
     virtual bool winEvent( MSG * );		// Windows event
 #elif defined(_WS_PM_)
     virtual bool pmEvent( QMSG * );		// OS/2 PM event
+#elif defined(_WS_POND_)
+    virtual bool pondEvent(MSG *);      // Pond event
 #elif defined(_WS_X11_)
-    virtual bool x11Event( XEvent * );		// X11 event
+    virtual bool x11Event( XEvent * );	// X11 event
 #endif
 
   // Misc. protected functions

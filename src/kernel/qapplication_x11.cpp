@@ -48,10 +48,13 @@
 #if defined(_OS_WIN32_)
 #undef gettimeofday
 #endif
+
+#if not defined(_OS_DUCK_)
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
 #include <X11/Xatom.h>
+#endif
 #if !defined(XlibSpecificationRelease)
 #define X11R4
 typedef char *XPointer;
@@ -2918,7 +2921,9 @@ bool QETWidget::translateMouseEvent( const XEvent *event )
 
 #define XK_MISCELLANY
 #define XK_LATIN1
+#if not defined(_OS_DUCK_)
 #include <X11/keysymdef.h>
+#endif
 #include "qkeycode.h"
 
 #ifndef XK_ISO_Left_Tab

@@ -110,6 +110,8 @@
 #define _OS_UNIXWARE7_
 #elif defined(__QNX__)
 #define _OS_QNX_
+#elif defined(DUCKOS)
+#define _OS_DUCK_
 #else
 #error "Qt has not been ported to this OS - talk to qt-bugs@troll.no"
 #endif
@@ -454,19 +456,19 @@ Q_EXPORT bool qSysInfo( int *wordSize, bool *bigEndian );
 
 Q_EXPORT void debug( const char *, ... )	// print debug message
 #if defined(_CC_GNU_)
-    __attribute__ ((format (printf, 1, 2)))
+__attribute__ ((format (printf, 1, 2)))
 #endif
 ;
 
 Q_EXPORT void warning( const char *, ... )	// print warning message
 #if defined(_CC_GNU_)
-    __attribute__ ((format (printf, 1, 2)))
+__attribute__ ((format (printf, 1, 2)))
 #endif
 ;
 
 Q_EXPORT void fatal( const char *, ... )	// print fatal message and exit
 #if defined(_CC_GNU_)
-    __attribute__ ((format (printf, 1, 2)))
+__attribute__ ((format (printf, 1, 2)))
 #endif
 ;
 
@@ -504,7 +506,7 @@ Q_EXPORT void qSuppressObsoleteWarnings( bool = TRUE );
 #if !defined(QT_REJECT_OBSOLETE)
 #define QT_OBSOLETE
 Q_EXPORT void qObsolete( const char *obj, const char *oldfunc,
-			 const char *newfunc );
+                         const char *newfunc );
 Q_EXPORT void qObsolete( const char *obj, const char *oldfunc );
 Q_EXPORT void qObsolete( const char *message );
 #endif

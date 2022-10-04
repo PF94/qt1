@@ -1660,8 +1660,10 @@ void QPainter::drawImage( int x, int y, const QImage & image,
 	param[1].image = &image;
 #if defined(_WS_WIN_)
 	if ( !pdev->cmd(PDC_DRAWIMAGE,this,param) || !hdc )
-#else
+#elseif not defined(_WS_POND_)
 	if ( !pdev->cmd(PDC_DRAWIMAGE,this,param) || !hd )
+#else
+#warning "borked on pond, check this later"
 #endif
 	    return;
     }
@@ -1845,8 +1847,10 @@ void QPainter::drawText( int x, int y, int w, int h, int tf,
 	    if ( pdev->devType() != PDT_PRINTER ) {
 #if defined(_WS_WIN_)
 		if ( !pdev->cmd(PDC_DRAWTEXTFRMT,this,param) || !hdc )
-#else
+#elseif not defined(_WS_POND_)
 		if ( !pdev->cmd(PDC_DRAWTEXTFRMT,this,param) || !hd )
+#else
+#warning "borked on pond, check this later."
 #endif
 		    return;			// QPrinter wants PDC_DRAWTEXT
 	    }

@@ -22,6 +22,10 @@
 *****************************************************************************/
 
 #include "qglobal.h"
+
+#if defined(_OS_DUCK_)
+#warning "fixme: pwd.h"
+#else
 #if defined(_OS_SUN_)
 #define readlink _qt_hide_readlink
 #endif
@@ -858,3 +862,4 @@ void QFileInfo::doStat() const
 	that->fic = 0;
     }
 }
+#endif

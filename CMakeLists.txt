@@ -39,7 +39,7 @@ include(Qt1InternalBuild)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD 11)
 set(BUILD_SHARED_LIBS ON)
 
 option(ENABLE_THREAD_SUPPORT "Compile with Threading Support")
@@ -63,7 +63,7 @@ if(SYSTEM_ZLIB)
     find_package(ZLIB REQUIRED)
 endif()
 
-if(LINUX)
+if(NOT IS_DUCKOS)
     find_package(X11 REQUIRED)
 endif()
 find_package(BYACC REQUIRED)

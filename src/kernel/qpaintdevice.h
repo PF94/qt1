@@ -90,7 +90,9 @@ protected:
 #elif defined(_WS_PM_)
     HPS	     hps;				// presentation space
 #elif defined(_WS_X11_)
-    static Display *dpy;			// display (common to all)
+    static Display *dpy;		// display (common to all)
+    HANDLE   hd;				// handle to drawable
+#elif defined(_WS_POND_)
     HANDLE   hd;				// handle to drawable
 #endif
 

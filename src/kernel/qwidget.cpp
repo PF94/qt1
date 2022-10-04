@@ -867,11 +867,14 @@ void QWidget::deleteExtra()
 
   \sa wmapper(), id()
 */
-
+#ifdef _WS_POND_
+#warning "borked on pond, check this later."
+#else
 QWidget *QWidget::find( WId id )
 {
     return mapper ? mapper->find( id ) : 0;
 }
+#endif
 
 /*!
   \fn QWidgetMapper *QWidget::wmapper()
@@ -3267,6 +3270,26 @@ bool QWidget::pmEvent( QMSG * )
 */
 
 bool QWidget::x11Event( XEvent * )
+{
+    return FALSE;
+}
+
+#elif defined(_WS_POND_)
+
+/*!
+  This special event handler can be reimplemented in a subclass to receive
+  native X11 events.
+
+  If the event handler returns FALSE, this native event is passed back to
+  Qt, which translates the event into a Qt event and sends it to the
+  widget.  If the event handler returns TRUE, the event is stopped.
+
+  \warning This function is not portable.
+
+  QApplication::PondEventFilter()
+*/
+
+bool QWidget::pondEvent( MSG * )
 {
     return FALSE;
 }

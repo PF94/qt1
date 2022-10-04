@@ -94,6 +94,11 @@ class QListM_QWidget;
 #define _WS_X11_
 #endif
 
+#if defined(_OS_DUCK_)
+#undef _WS_X11_
+#define _WS_POND_
+#endif
+
 #if defined(_WS_WIN16_) || defined(_WS_WIN32_)
 #define _WS_WIN_
 #endif
@@ -169,7 +174,15 @@ Q_EXPORT WId	 qt_xrootwin();
 Q_EXPORT GC	 qt_xget_readonly_gc( bool monochrome=FALSE );
 Q_EXPORT GC	 qt_xget_temp_gc( bool monochrome=FALSE );
 
-#endif // _WS_X11_
+#endif // _WS_POND_
+
+#if defined(_WS_POND_)
+
+typedef unsigned int    WId;
+typedef unsigned int    HANDLE;
+typedef struct _PondMsg MSG;
+
+#endif // _WS_POND_
 
 
 #if defined(NEEDS_QMAIN)

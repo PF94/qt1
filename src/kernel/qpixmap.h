@@ -145,6 +145,8 @@ protected:
 #elif defined(_WS_PM_)
 	HANDLE	hdcmem;
 	HANDLE	hbm;
+#elif defined(_WS_POND_)
+    HANDLE	hbm;
 #elif defined(_WS_X11_)
 	void   *ximage;
 	void   *maskgc;
