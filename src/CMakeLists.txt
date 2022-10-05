@@ -74,10 +74,16 @@ target_include_directories(Qt1
         ${X11_INCLUDE_DIR}
     )
 
+if(NOT IS_DUCKOS)
 install(TARGETS Qt1 EXPORT Qt1Targets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
+else()
+install(TARGETS Qt1 EXPORT Qt1Targets LIBRARY DESTINATION lib)
+set_target_properties(Qt1 PROPERTIES PREFIX "")
+add_dependencies(Qt1 libc)
+endif()
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(

@@ -24,6 +24,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+if(NOT IS_DUCKOS)
 add_subdirectory(aclock)
 add_subdirectory(application)
 add_subdirectory(connect)
@@ -55,3 +56,6 @@ add_subdirectory(tooltip)
 add_subdirectory(validator)
 add_subdirectory(widgets)
 add_subdirectory(xform)
+else()
+add_subdirectory(bad-duckos-example)
+endif()

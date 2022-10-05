@@ -45,7 +45,7 @@ set(BUILD_SHARED_LIBS ON)
 option(ENABLE_THREAD_SUPPORT "Compile with Threading Support")
 option(ENABLE_OPENGL "Compile OpenGL module")
 option(BUILD_QT1_TUTORIAL "Build tutorials.")
-option(BUILD_QT1_EXAMPLES "Build examples.")
+option(BUILD_QT1_EXAMPLES "Build examples." TRUE)
 option(INSTALL_QT_DOCS "Install Qt Documentation")
 
 find_package(PkgConfig REQUIRED)
