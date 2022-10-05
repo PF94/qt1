@@ -24,27 +24,39 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# due to x11 dependencies, duckos support is unfonturately minimal.
+
 add_subdirectory(moc)
+if(NOT IS_DUCKOS)
 add_subdirectory(kernel)
 add_subdirectory(dialogs)
 add_subdirectory(widgets)
+endif()
 add_subdirectory(tools)
 
+if(NOT IS_DUCKOS)
 add_library(Qt1
     $<TARGET_OBJECTS:kernel>
     $<TARGET_OBJECTS:dialogs>
     $<TARGET_OBJECTS:widgets>
     $<TARGET_OBJECTS:tools>
 )
+else()
+add_library(Qt1
+    $<TARGET_OBJECTS:tools>
+)
+endif()
 
 add_library(Qt::Qt1 ALIAS Qt1)
 
 target_link_libraries(Qt1
+if(NOT IS_DUCKOS)
     PRIVATE
         ${X11_LIBRARIES}
     )
 if(ENABLE_OPENGL)
     target_link_libraries(Qt1 PRIVATE OpenGL::GL X11::Xmu)
+endif()
 endif()
 
 set_target_properties(Qt1 PROPERTIES
