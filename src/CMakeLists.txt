@@ -54,9 +54,9 @@ if(NOT IS_DUCKOS)
     PRIVATE
         ${X11_LIBRARIES}
     )
+endif()
 if(ENABLE_OPENGL)
     target_link_libraries(Qt1 PRIVATE OpenGL::GL X11::Xmu)
-endif()
 endif()
 
 set_target_properties(Qt1 PROPERTIES
