@@ -29,6 +29,9 @@
 #include "qdatetime.h"
 #endif // QT_H
 
+#if defined(_OS_DUCK_)
+#warning "needs a lot of non-implemented things"
+#else
 class QDir;
 struct QFileInfoCache;
 
@@ -108,3 +111,4 @@ inline bool QFileInfo::caching() const
 
 
 #endif // QFILEINFO_H
+#endif

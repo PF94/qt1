@@ -63,6 +63,10 @@ static void slashify( char * )
 
 #endif
 
+#if defined(_OS_DUCK_)
+#warning "needs a lot of non-implemented things"
+#else
+
 
 /*!
   \class QDir qdir.h
@@ -1627,3 +1631,4 @@ const QFileInfoList * QDir::drives()
 
     return knownMemoryLeak;
 }
+#endif

@@ -24,7 +24,7 @@
 #include "qglobal.h"
 
 #if defined(_OS_DUCK_)
-#warning "fixme: pwd.h"
+#warning "needs a lot of non-implemented things"
 #else
 #if defined(_OS_SUN_)
 #define readlink _qt_hide_readlink

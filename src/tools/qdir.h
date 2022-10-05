@@ -29,6 +29,10 @@
 #include "qfileinfo.h"
 #endif // QT_H
 
+#if defined(_OS_DUCK_)
+#warning "needs a lot of non-implemented things"
+#else
+
 typedef Q_DECLARE(QListM,QFileInfo)	    QFileInfoList;
 typedef Q_DECLARE(QListIteratorM,QFileInfo) QFileInfoListIterator;
 
@@ -198,3 +202,4 @@ inline bool QDir::operator!=( const QDir &d ) const
 
 
 #endif // QDIR_H
+#endif
