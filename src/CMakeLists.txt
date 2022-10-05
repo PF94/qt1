@@ -49,8 +49,8 @@ endif()
 
 add_library(Qt::Qt1 ALIAS Qt1)
 
-target_link_libraries(Qt1
 if(NOT IS_DUCKOS)
+target_link_libraries(Qt1
     PRIVATE
         ${X11_LIBRARIES}
     )
