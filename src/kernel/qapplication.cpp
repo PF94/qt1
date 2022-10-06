@@ -107,7 +107,7 @@ QWidget	 *QApplication::focus_widget   = 0;	// has keyboard input focus
 
 #if defined(_WS_WIN_)
 GUIStyle QApplication::app_style = WindowsStyle;// default style for Windows
-#elif defined(_WS_X11_)
+#else
 GUIStyle QApplication::app_style = MotifStyle;	// default style for X Windows
 #endif
 

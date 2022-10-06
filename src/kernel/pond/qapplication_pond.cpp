@@ -14,11 +14,13 @@
 #include <ctype.h>
 #include <locale.h>
 #include <errno.h> 
-#include <libpond/Window.h>
+#include <libui/libui.h>
 
 void qt_init( int *argcptr, char **argv )
 {
   // Misc. initialization
+
+    UI::init(argv, NULL);
 
     QColor::initialize();
     QFont::initialize();
@@ -34,3 +36,9 @@ void qt_cleanup()
     QFont::cleanup();
     QColor::cleanup();
 }
+
+void QApplication::flushX() { }
+
+void QApplication::syncX() { }
+
+void QApplication::beep() { }
