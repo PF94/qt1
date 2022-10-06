@@ -27,8 +27,8 @@
 # due to x11 dependencies, duckos support is unfonturately minimal.
 
 add_subdirectory(moc)
-if(NOT IS_DUCKOS)
 add_subdirectory(kernel)
+if(NOT IS_DUCKOS)
 add_subdirectory(dialogs)
 add_subdirectory(widgets)
 endif()
@@ -44,6 +44,7 @@ add_library(Qt1
 else()
 add_library(Qt1
     $<TARGET_OBJECTS:tools>
+    $<TARGET_OBJECTS:kernel>
 )
 endif()
 
@@ -82,7 +83,7 @@ install(TARGETS Qt1 EXPORT Qt1Targets
 else()
 install(TARGETS Qt1 EXPORT Qt1Targets LIBRARY DESTINATION lib)
 set_target_properties(Qt1 PROPERTIES PREFIX "")
-add_dependencies(Qt1 libc)
+add_dependencies(Qt1 libc libgraphics libduck libriver libapp)
 endif()
 
 include(CMakePackageConfigHelpers)

@@ -49,12 +49,10 @@
 #undef gettimeofday
 #endif
 
-#if not defined(_OS_DUCK_)
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
 #include <X11/Xatom.h>
-#endif
 #if !defined(XlibSpecificationRelease)
 #define X11R4
 typedef char *XPointer;

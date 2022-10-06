@@ -39,7 +39,7 @@ include(Qt1InternalBuild)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(BUILD_SHARED_LIBS ON)
 
 option(ENABLE_THREAD_SUPPORT "Compile with Threading Support")

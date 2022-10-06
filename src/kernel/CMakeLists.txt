@@ -131,7 +131,7 @@ set(KERNEL_SRCS
     qwmatrix.cpp
 )
 
-if(UNIX)
+if(UNIX AND NOT IS_DUCKOS)
     list(APPEND KERNEL_SRCS
         qapplication_x11.cpp
         qclipboard_x11.cpp
@@ -150,6 +150,12 @@ if(UNIX)
         qnpsupport.cpp
         qwidgetcreate_x11.cpp
     )
+endif()
+
+if(IS_DUCKOS)
+   list(APPEND KERNEL_SRCS
+       pond/qapplication_pond.cpp
+   )
 endif()
 
 qt1_wrap_moc(KERNEL_SRCS
